@@ -1,17 +1,5 @@
-<header class="header header-1">
-  <nav class="header-1__collections-nav">
-    <ul class="d-flex align-items-center justify-content-center" style="margin: 0;">
-      {%- if section.settings.menu != blank -%}
-        {%- for link in section.settings.menu.links -%}
-          <li>
-            <a href="{{ link.url }}">{{ link.title | escape }}</a>
-          </li>
-        {%- endfor -%}
-      {%- endif -%}
-    </ul>
-  </nav>
-
-  <div class="header-1__logo">
+<header class="header header-3">
+  <div class="header-3__logo">
     <a href="{{ routes.root_url }}">
       {%- if section.settings.logo != blank -%}
         {%- assign image_size = section.settings.logo_width | append: 'x' -%}
@@ -29,10 +17,10 @@
     </a>
   </div>
 
-  <nav class="header-1__collections-nav">
+  <nav class="header-3__collections-nav">
     <ul class="d-flex align-items-center justify-content-center" style="margin: 0;">
-      {%- if section.settings.menu_2 != blank -%}
-        {%- for link in section.settings.menu_2.links -%}
+      {%- if section.settings.menu != blank -%}
+        {%- for link in section.settings.menu.links -%}
           <li>
             <a href="{{ link.url }}">{{ link.title | escape }}</a>
           </li>

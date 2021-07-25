@@ -3,8 +3,9 @@
   {% when 'header1' %}
     {% render 'header1' %}
   {% when 'header2' %}
-
+    {% render 'header2' %}
   {% when 'header3' %}
+    {% render 'header3' %}
 
 {% endcase %}
 
@@ -48,26 +49,6 @@
       "label": "t:sections.header.settings.logo_width.label"
     },
     {
-      "type": "select",
-      "id": "logo_position",
-      "options": [
-        {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
-        },
-        {
-          "value": "top-left",
-          "label": "t:sections.header.settings.logo_position.options__2.label"
-        },
-        {
-          "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
-        }
-      ],
-      "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label"
-    },
-    {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
@@ -78,19 +59,6 @@
       "id": "menu_2",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_sticky_header",
-      "default": true,
-      "label": "t:sections.header.settings.enable_sticky_header.label",
-      "info": "t:sections.header.settings.enable_sticky_header.info"
     }
   ]
 }
