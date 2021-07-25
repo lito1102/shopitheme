@@ -1,30 +1,37 @@
-<header class="header header-1">
-  <div class="header-1__collections-nav">
-    <a href="/link">Shop</a>
-    <a href="/link">Collections</a>
-    <a href="/link">Sesonal</a>
-  </div>
+{% case section.settings.header_type %}
 
-  <div class="header-1__logo">
-    <a href="/link">Company</a>
-  </div>
+  {% when 'header1' %}
+    {% render 'header1' %}
+  {% when 'header2' %}
 
-  <div class="header-1__collections-nav">
-    <a href="/link">Trending</a>
-    <a href="/link">New Arrivals</a>
-    <a href="/user" class="user">
-      <i class="bi bi-person"></i>
-    </a>
-    <a href="/cart" class="shopping-cart">
-      <i class="bi bi-cart"></i>
-    </a>
-  </div>
-</header>
+  {% when 'header3' %}
+
+{% endcase %}
 
 {% schema %}
 {
   "name": "t:sections.header.name",
   "settings": [
+    {
+    "type": "select",
+    "id": "header_type",
+    "label": "Select your header style",
+    "options": [
+      {
+        "value": "header1",
+        "label": "Header style 1"
+      },
+      {
+        "value": "header2",
+        "label": "Header style 2"
+      },
+      {
+        "value": "header3",
+        "label": "Header style 3"
+      }
+    ],
+    "default": "header1"
+    },
     {
       "type": "image_picker",
       "id": "logo",
@@ -63,6 +70,12 @@
     {
       "type": "link_list",
       "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
     },
