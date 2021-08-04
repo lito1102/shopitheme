@@ -1,7 +1,97 @@
 {% case section.settings.header_type %}
 
   {% when 'header1' %}
-    {% render 'header1' %}
+
+  <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print"
+    onload="this.media='all'">
+
+  <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
+
+  <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+
+
+
+  <header class="header header-1">
+    <nav class="header-1__collections-nav">
+      <ul class="d-flex align-items-center justify-content-center" style="margin: 0;">
+        {%- if section.settings.menu != blank -%}
+        {%- for link in section.settings.menu.links -%}
+        <li>
+          <a href="{{ link.url }}">{{ link.title | escape }}</a>
+        </li>
+        {%- endfor -%}
+        {%- endif -%}
+      </ul>
+    </nav>
+
+    <div class="header-1__logo">
+      <a href="{{ routes.root_url }}">
+        {%- if section.settings.logo != blank -%}
+        {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+        <img
+          srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+          src="{{ section.settings.logo | img_url: image_size }}" loading="lazy" class="header__heading-logo"
+          width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}"
+          alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
+        {%- else -%}
+        {{ shop.name }}
+        {%- endif -%}
+      </a>
+    </div>
+
+    <nav class="header-1__collections-nav">
+      <ul class="d-flex align-items-center justify-content-center" style="margin: 0;">
+        {%- if section.settings.menu_2 != blank -%}
+        {%- for link in section.settings.menu_2.links -%}
+        <li>
+          <a href="{{ link.url }}">{{ link.title | escape }}</a>
+        </li>
+        {%- endfor -%}
+        {%- endif -%}
+    
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+          class="user">
+          <span class="visually-hidden">
+            {%- liquid
+            if customer
+            echo 'customer.account_fallback' | t
+            else
+            echo 'customer.log_in' | t
+            endif
+            -%}
+          </span>
+          <i class="bi bi-person"></i>
+        </a>
+    
+        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
+        {%- liquid
+          if cart == empty
+            render 'icon-cart'          
+          else
+            render 'icon-cart'
+          endif
+        -%}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
+      </ul>
+    </nav>
+
+  </header>
+  {%- if request.page_type != 'cart' -%}
+    {%- render 'cart-notification' -%}
+  {%- endif -%}
+
+
   {% when 'header2' %}
     {% render 'header2' %}
   {% when 'header3' %}
