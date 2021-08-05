@@ -1,4 +1,4 @@
-<div class="hero hero2">
+<div class="hero hero2 hero2--{{ section.settings.hero2-height }}">
   <div class="hero2__collection1">
     {%- if section.settings.image != blank -%}
     <img
@@ -81,6 +81,30 @@
 {
   "name": "Hero Two",
   "settings": [
+  {
+    "type": "select",
+    "id": "hero2-height",
+    "options": [
+      {
+        "value": "25vh",
+        "label": "25%"
+      },
+      {
+        "value": "50vh",
+        "label": "50%"
+      },
+      {
+        "value": "75vh",
+        "label": "75%"
+      },
+      {
+        "value": "100vh",
+        "label": "100%"
+      }
+    ],
+    "default": "100vh",
+    "label": "Hero 2 height"
+    },
     {
       "type": "image_picker",
       "id": "image",
