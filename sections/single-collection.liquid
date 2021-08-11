@@ -9,28 +9,41 @@
             <div class="collection1__product-img">
               <div class="collection1__heart"><i class="bi bi-heart"></i></div>
               {%- if product.images[0] != blank -%}
-              <img
-                srcset="{%- if product.images[0].width >= 165 -%}{{ product.images[0] | img_url: '165x' }} 165w,{%- endif -%}
-                    {%- if product.images[0].width >= 360 -%}{{ product.images[0] | img_url: '360x' }} 360w,{%- endif -%}
-                    {%- if product.images[0].width >= 535 -%}{{ product.images[0] | img_url: '535x' }} 535w,{%- endif -%}
-                    {%- if product.images[0].width >= 720 -%}{{ product.images[0] | img_url: '720x' }} 720w,{%- endif -%}
-                    {%- if product.images[0].width >= 940 -%}{{ product.images[0] | img_url: '940x' }} 940w,{%- endif -%}
-                    {%- if product.images[0].width >= 1070 -%}{{ product.images[0] | img_url: '2000x' }} 2000w{%- endif -%}"
-                src="{{ product.images[0] | img_url: 'master' }}"
-                sizes="(min-width: 1100px) 2000px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                alt="{{ product.images[0].alt | escape }}"
-                loading="lazy"
-                class="hero1__bg"
-                width="{{ product.images[0].width }}"
-                
-                >
+              <a href="{{ product.url }}" style="display: block; width: 70%;">
+                <img
+                  srcset="{%- if product.images[0].width >= 165 -%}{{ product.images[0] | img_url: '165x' }} 165w,{%- endif -%}
+                      {%- if product.images[0].width >= 360 -%}{{ product.images[0] | img_url: '360x' }} 360w,{%- endif -%}
+                      {%- if product.images[0].width >= 535 -%}{{ product.images[0] | img_url: '535x' }} 535w,{%- endif -%}
+                      {%- if product.images[0].width >= 720 -%}{{ product.images[0] | img_url: '720x' }} 720w,{%- endif -%}
+                      {%- if product.images[0].width >= 940 -%}{{ product.images[0] | img_url: '940x' }} 940w,{%- endif -%}
+                      {%- if product.images[0].width >= 1070 -%}{{ product.images[0] | img_url: '2000x' }} 2000w{%- endif -%}"
+                  src="{{ product.images[0] | img_url: 'master' }}"
+                  sizes="(min-width: 1100px) 2000px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                  alt="{{ product.images[0].alt | escape }}"
+                  loading="lazy"
+                  class="hero1__bg"
+                  width="{{ product.images[0].width }}"
+                  
+                  >
+                </a>
               {%- else -%}
                 {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
               {%- endif -%}
             </div>
             <div class="collection1__product-info">
-              <div class="collection1__product-details"><span class="collection1__product-title">{{ product.title }}</span><span
-                  class="collection1__product-price">{{ product.price | money}}</span></div>
+              <div class="collection1__product-details">
+                {%- if section.settings.show_title == true -%}
+                  <span class="collection1__product-title">
+                    {{ product.title }}
+                  </span>
+                {%- endif -%}
+
+                {%- if section.settings.show_price == true -%}
+                  <span class="collection1__product-price">
+                    {{ product.price | money}}
+                  </span>
+                {%- endif -%}
+              </div>
               <div class="collection1__product-colors">
                 <div class="collection1__color collection1__color--blue"></div>
                 <div class="collection1__color collection1__color--black"></div>
@@ -137,6 +150,18 @@
       "step": 1,
       "label": "Opacity",
       "default": 50
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show Title",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show Price",
+      "default": true
     },
     {
       "type": "select",
