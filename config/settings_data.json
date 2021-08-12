@@ -6,9 +6,11 @@
         "blocks": {
           "announcement-bar-0": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "SAVE 50% ON SUMMER COLLECTION",
-              "color_scheme": "accent-1",
+              "background-color": "#605e7d",
+              "announcement-text-color": "#ffffff",
               "link": "shopify:\/\/collections\/adidas"
             }
           }
@@ -22,11 +24,10 @@
       "header": {
         "type": "header",
         "settings": {
+          "header_type": "header1",
           "logo_width": 100,
-          "logo_position": "middle-left",
           "menu": "main-menu",
-          "show_line_separator": true,
-          "enable_sticky_header": true
+          "menu_2": "main-menu"
         }
       },
       "footer": {

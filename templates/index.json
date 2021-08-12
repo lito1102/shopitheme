@@ -1,60 +1,84 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "settings": {
-        "desktop_text_box_position": "flex-end"
-      },
+    "16287462046ff4ab1d": {
+      "type": "hero-1",
       "blocks": {
-        "heading": {
+        "16287462046ff4ab1d-0": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand"
+            "hero-heading": "Shop The Summer Collection",
+            "title-size": "md"
           }
         },
-        "button": {
-          "type": "buttons",
+        "16287462046ff4ab1d-1": {
+          "type": "subheading",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_label_2": ""
+            "hero-subheading": "Just in time for the summer. Take a peek on what ' s new."
+          }
+        },
+        "16287462046ff4ab1d-2": {
+          "type": "button",
+          "settings": {
+            "button_text": "SHOP COLLECTION",
+            "button_url": ""
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
-      ]
-    },
-    "featured_products": {
-      "type": "featured-collection",
+        "16287462046ff4ab1d-0",
+        "16287462046ff4ab1d-1",
+        "16287462046ff4ab1d-2"
+      ],
       "settings": {
-        "title": "Featured products"
+        "hero1-height": "100vh",
+        "image": "shopify:\/\/shop_images\/fashion-hero.jpg",
+        "bg-opacity": "#121212",
+        "opacity": 20,
+        "hero1-content-alignment": "left"
       }
     },
-    "image_text": {
-      "type": "image-with-text",
+    "1628746294e3849670": {
+      "type": "single-collection",
       "blocks": {
-        "heading": {
-          "type": "heading"
+        "1628746294e3849670-0": {
+          "type": "heading",
+          "settings": {
+            "hero-heading": "Shop The Summer Collection",
+            "title-size": "md"
+          }
         },
-        "text": {
-          "type": "text"
+        "1628746294e3849670-1": {
+          "type": "subheading",
+          "settings": {
+            "hero-subheading": "Just in time for the summer. Take a peek on what ' s new."
+          }
         },
-        "button": {
-          "type": "button"
+        "1628746294e3849670-2": {
+          "type": "button",
+          "settings": {
+            "button_text": "SHOP COLLECTION",
+            "button_url": ""
+          }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
-      ]
+        "1628746294e3849670-0",
+        "1628746294e3849670-1",
+        "1628746294e3849670-2"
+      ],
+      "settings": {
+        "hero1-height": "100vh",
+        "collection": "women",
+        "bg-opacity": "#121212",
+        "opacity": 50,
+        "show_title": false,
+        "show_price": true,
+        "hero1-content-alignment": "center"
+      }
     }
   },
   "order": [
-    "image_banner",
-    "featured_products",
-    "image_text"
+    "16287462046ff4ab1d",
+    "1628746294e3849670"
   ]
 }
